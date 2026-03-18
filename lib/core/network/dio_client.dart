@@ -17,7 +17,9 @@ class DioClient {
       ),
     );
     _dio.interceptors.addAll([
-      PrettyDioLogger(requestHeader: true, requestBody: true, responseBody: true),
+      PrettyDioLogger(
+
+          requestHeader: true, requestBody: true, responseBody: true),
       AuthInterceptor(),
       ErrorInterceptor(),
     ]);

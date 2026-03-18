@@ -32,4 +32,19 @@ class TKeys {
   static const String apiStatus      = 'api_status';
   static const String online         = 'online';
   static const String offline        = 'offline';
+  static const String newPost        = 'new_post';
+  static const String editPost       = 'edit_post';
+  static const String deletePost     = 'delete_post';
+  static const String postCreated    = 'post_created';
+  static const String postUpdated    = 'post_updated';
+  static const String postDeleted    = 'post_deleted';
+  static const String confirmDelete  = 'confirm_delete';
+  static const String deleteMessage  = 'delete_message';
+  static const String cancel         = 'cancel';
+  static const String save           = 'save';
+  static const String titleHint      = 'title_hint';
+  static const String bodyHint       = 'body_hint';
+  static const String titleRequired  = 'title_required';
+  static const String bodyRequired   = 'body_required';
+  static const String user           = 'user';
 }
