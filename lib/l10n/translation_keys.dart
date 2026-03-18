@@ -1,0 +1,35 @@
+class TKeys {
+  static const String appName        = 'app_name';
+  static const String posts          = 'posts';
+  static const String users          = 'users';
+  static const String settings       = 'settings';
+  static const String darkMode       = 'dark_mode';
+  static const String language       = 'language';
+  static const String noInternet     = 'no_internet';
+  static const String retrying       = 'retrying';
+  static const String retry          = 'retry';
+  static const String error          = 'error';
+  static const String success        = 'success';
+  static const String loading        = 'loading';
+  static const String noData         = 'no_data';
+  static const String serverError    = 'server_error';
+  static const String networkError   = 'network_error';
+  static const String timeout        = 'timeout';
+  static const String unauthorized   = 'unauthorized';
+  static const String offlineData    = 'offline_data';
+  static const String refresh        = 'refresh';
+  static const String title          = 'title';
+  static const String body           = 'body';
+  static const String id             = 'id';
+  static const String theme          = 'theme';
+  static const String light          = 'light';
+  static const String dark           = 'dark';
+  static const String system         = 'system';
+  static const String selectLanguage = 'select_language';
+  static const String dashboard      = 'dashboard';
+  static const String totalPosts     = 'total_posts';
+  static const String totalUsers     = 'total_users';
+  static const String apiStatus      = 'api_status';
+  static const String online         = 'online';
+  static const String offline        = 'offline';
+}
