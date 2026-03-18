@@ -64,23 +64,23 @@ class _NewPostPageState extends State<NewPostPage> {
       backgroundColor: isDark ? const Color(0xFF0A0F0E) : const Color(0xFFF4F7F6),
       appBar: AppBar(
         title: Text(_isEditing ? TKeys.editPost.tr : TKeys.newPost.tr),
-        actions: [
-          Obx(() => _ctrl.isSubmitting.value
-              ? const Padding(
-              padding: EdgeInsets.all(16),
-              child: SizedBox(
-                width: 20, height: 20,
-                child: CircularProgressIndicator(strokeWidth: 2),
-              ))
-              : TextButton(
-            onPressed: _submit,
-            child: Text(TKeys.save.tr,
-                style: const TextStyle(
-                    color: teal,
-                    fontWeight: FontWeight.w700,
-                    fontSize: 15)),
-          )),
-        ],
+        // actions: [
+        //   Obx(() => _ctrl.isSubmitting.value
+        //       ? const Padding(
+        //       padding: EdgeInsets.all(16),
+        //       child: SizedBox(
+        //         width: 20, height: 20,
+        //         child: CircularProgressIndicator(strokeWidth: 2),
+        //       ))
+        //       : TextButton(
+        //     onPressed: _submit,
+        //     child: Text(TKeys.save.tr,
+        //         style: const TextStyle(
+        //             color: teal,
+        //             fontWeight: FontWeight.w700,
+        //             fontSize: 15)),
+        //   )),
+        // ],
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
