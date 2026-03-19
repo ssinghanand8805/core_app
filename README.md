@@ -23,13 +23,13 @@ This project is designed to be scalable, maintainable, and easy to extend.
 ```
 lib/
 │
-├── core/            # Common services, utils, network, error handling
-├── data/            # Models, datasources (remote/local), repositories
-├── domain/          # Entities, repositories (abstract), usecases
-├── presentation/    # UI, controllers (GetX), widgets
-├── routes/          # App routes and navigation
-├── l10n/            # Localization files
-├── main.dart        # Entry point
+├── core/
+├── data/
+├── domain/
+├── presentation/
+├── routes/
+├── l10n/
+├── main.dart
 ```
 
 ---
@@ -39,19 +39,17 @@ lib/
 ### 1. Clone the repository
 
 ```
-git clone <https://github.com/ssinghanand8805/core_app.git>
+## Clone the repository
+
+git clone https://github.com/ssinghanand8805/core_app.git
 cd <project-folder>
 ```
-
----
 
 ### 2. Install dependencies
 
 ```
 flutter pub get
 ```
-
----
 
 ### 3. Run the app
 
@@ -81,7 +79,7 @@ UI → Controller → Repository
         Local DB (Drift) ←→ Remote API (Dio)
 ```
 
-* App always loads data from **local database first**
+* Loads data from **local DB first**
 * Syncs with API in background
 * UI updates automatically
 
@@ -89,19 +87,19 @@ UI → Controller → Repository
 
 ## 🎨 Theme Change
 
-* Supports Light & Dark mode
-* Persisted using local storage
+* Light / Dark mode supported
+* Preference saved locally
 
 ---
 
 ## 🌍 Localization
 
-Supports multiple languages:
+Supported languages:
 
-* English 🇺🇸
-* Hindi 🇮🇳
-* Arabic 🇸🇦
-* Urdu 🇵🇰
+* English
+* Hindi
+* Arabic
+* Urdu
 
 Usage:
 
@@ -113,29 +111,27 @@ Text("key".tr)
 
 ## 🚨 Error Handling
 
-Centralized error handling using:
-
-* Custom Exceptions
-* Toast messages
-* Network / Server / Cache error handling
+* Centralized exception handling
+* Toast-based user feedback
+* Handles network, server, and cache errors
 
 ---
 
 ## 📡 Connectivity
 
-* Detects internet status
+* Detects online/offline state
 * Supports offline usage
-* Syncs data when online
+* Syncs automatically when online
 
 ---
 
 ## 🧠 Best Practices Used
 
-* Separation of concerns (Clean Architecture)
-* Repository pattern
-* Reactive UI with GetX
-* Reusable components
-* Scalable folder structure
+* Clean Architecture
+* Repository Pattern
+* Reactive UI (GetX)
+* Separation of concerns
+* Scalable structure
 
 ---
 
@@ -148,10 +144,31 @@ Centralized error handling using:
 
 ---
 
+## 💡 Suggestions & Improvements
+
+We welcome feedback from developers to improve this project.
+
+If you have ideas, feel free to:
+
+* Suggest architectural improvements
+* Optimize performance or memory usage
+* Improve UI/UX patterns
+* Add new features (pagination, caching strategies, etc.)
+* Enhance error handling or logging
+* Improve code readability and reusability
+
+You can contribute by:
+
+* Opening an issue
+* Submitting a pull request
+* Sharing feedback or ideas
+
+---
+
 ## 🤝 Contribution
 
-Feel free to fork and improve the project.
-Pull requests are welcome!
+Contributions are welcome!
+Feel free to fork the repo and submit PRs.
 
 ---
 
