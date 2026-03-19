@@ -39,7 +39,7 @@ lib/
 ### 1. Clone the repository
 
 ```
-git clone <your-repo-url>
+git clone <https://github.com/ssinghanand8805/core_app.git>
 cd <project-folder>
 ```
 
