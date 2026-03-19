@@ -11,14 +11,18 @@ class DioClient {
     _dio = Dio(
       BaseOptions(
         baseUrl: AppConstants.baseUrl,
-        connectTimeout: const Duration(milliseconds: AppConstants.connectTimeout),
-        receiveTimeout: const Duration(milliseconds: AppConstants.receiveTimeout),
-        headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+        connectTimeout:
+            const Duration(milliseconds: AppConstants.connectTimeout),
+        receiveTimeout:
+            const Duration(milliseconds: AppConstants.receiveTimeout),
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
       ),
     );
     _dio.interceptors.addAll([
       PrettyDioLogger(
-
           requestHeader: true, requestBody: true, responseBody: true),
       AuthInterceptor(),
       ErrorInterceptor(),
