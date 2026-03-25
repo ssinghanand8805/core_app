@@ -4,9 +4,10 @@ import '../../models/workout_model.dart';
 import '../../models/subscription_model.dart';
 
 abstract class TrainerRemoteDataSource {
-  Future<List<WorkoutModel>>      getAssignedWorkouts();
+  Future<List<WorkoutModel>> getAssignedWorkouts();
   Future<List<SubscriptionModel>> getSubscribedUsers();
-  Future<void>                    assignWorkout(Map<String, dynamic> data);
+  Future<void> assignWorkout(Map<String, dynamic> data);
+  Future<void> deleteUser(int userId);
 }
 
 class TrainerRemoteDataSourceImpl implements TrainerRemoteDataSource {
@@ -26,7 +27,9 @@ class TrainerRemoteDataSourceImpl implements TrainerRemoteDataSource {
   Future<List<SubscriptionModel>> getSubscribedUsers() async {
     try {
       final res = await _dio.get(ApiEndpoints.subscriptions);
-      return (res.data as List).map((e) => SubscriptionModel.fromJson(e)).toList();
+      return (res.data as List)
+          .map((e) => SubscriptionModel.fromJson(e))
+          .toList();
     } catch (_) {
       return SubscriptionModel.mockList();
     }
@@ -34,6 +37,15 @@ class TrainerRemoteDataSourceImpl implements TrainerRemoteDataSource {
 
   @override
   Future<void> assignWorkout(Map<String, dynamic> data) async {
-    try { await _dio.post(ApiEndpoints.workouts, data: data); } catch (_) {}
+    try {
+      await _dio.post(ApiEndpoints.workouts, data: data);
+    } catch (_) {}
+  }
+
+  @override
+  Future<void> deleteUser(int userId) async {
+    try {
+      await _dio.delete('${ApiEndpoints.users}/$userId');
+    } catch (_) {}
   }
 }

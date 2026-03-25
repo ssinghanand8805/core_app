@@ -11,12 +11,17 @@ class AuthRepositoryImpl implements AuthRepository {
   AuthRepositoryImpl({required this.remote});
 
   @override
-  Future<AuthEntity> login({required String email, required String password}) async {
+  Future<AuthEntity> login(
+      {required String email, required String password}) async {
     final auth = await remote.login(email: email, password: password);
-    await StorageService.to.setString(key: AppConstants.tokenKey,   value: auth.token);
-    await StorageService.to.setString(key: AppConstants.roleKey,    value: auth.role);
-    await StorageService.to.setString(key: AppConstants.userIdKey,  value: auth.id.toString());
-    await StorageService.to.setString(key: AppConstants.userNameKey, value: auth.name);
+    await StorageService.to
+        .setString(key: AppConstants.tokenKey, value: auth.token);
+    await StorageService.to
+        .setString(key: AppConstants.roleKey, value: auth.role);
+    await StorageService.to
+        .setString(key: AppConstants.userIdKey, value: auth.id.toString());
+    await StorageService.to
+        .setString(key: AppConstants.userNameKey, value: auth.name);
     return auth;
   }
 
@@ -37,7 +42,10 @@ class AuthRepositoryImpl implements AuthRepository {
       remote.verifyOtp(email: email, otp: otp);
 
   @override
-  Future<void> resetPassword({required String email, required String otp, required String newPassword}) =>
+  Future<void> resetPassword(
+          {required String email,
+          required String otp,
+          required String newPassword}) =>
       remote.resetPassword(email: email, otp: otp, newPassword: newPassword);
 
   @override
@@ -48,7 +56,8 @@ class AuthRepositoryImpl implements AuthRepository {
 
   @override
   Future<UserRole> getCurrentRole() async {
-    final role = StorageService.to.getString(key: AppConstants.roleKey) ?? 'user';
+    final role =
+        StorageService.to.getString(key: AppConstants.roleKey) ?? 'user';
     return UserRoleX.fromString(role);
   }
 }

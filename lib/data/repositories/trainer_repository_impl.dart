@@ -9,11 +9,14 @@ class TrainerRepositoryImpl implements TrainerRepository {
   TrainerRepositoryImpl({required this.remote});
 
   @override
-  Future<List<WorkoutEntity>> getAssignedWorkouts() => remote.getAssignedWorkouts();
-
+  Future<List<WorkoutEntity>> getAssignedWorkouts() =>
+      remote.getAssignedWorkouts();
   @override
-  Future<List<SubscriptionEntity>> getSubscribedUsers() => remote.getSubscribedUsers();
-
+  Future<List<SubscriptionEntity>> getSubscribedUsers() =>
+      remote.getSubscribedUsers();
   @override
-  Future<void> assignWorkout(WorkoutEntity w) => remote.assignWorkout((w as WorkoutModel).toJson());
+  Future<void> assignWorkout(WorkoutEntity w) =>
+      remote.assignWorkout((w as WorkoutModel).toJson());
+  @override
+  Future<void> deleteUser(int userId) => remote.deleteUser(userId);
 }

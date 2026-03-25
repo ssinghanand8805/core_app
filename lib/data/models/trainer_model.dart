@@ -17,6 +17,14 @@ class TrainerModel extends TrainerEntity {
         phone: json['phone'] as String? ?? '',
       );
 
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'name': name,
+        'email': email,
+        'specialty': specialty,
+        'phone': phone,
+      };
+
   static List<TrainerModel> mockList() => [
         const TrainerModel(
             id: 1,

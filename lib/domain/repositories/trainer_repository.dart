@@ -5,4 +5,5 @@ abstract class TrainerRepository {
   Future<List<WorkoutEntity>> getAssignedWorkouts();
   Future<List<SubscriptionEntity>> getSubscribedUsers();
   Future<void> assignWorkout(WorkoutEntity workout);
+  Future<void> deleteUser(int userId);
 }

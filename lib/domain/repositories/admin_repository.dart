@@ -8,4 +8,7 @@ abstract class AdminRepository {
   Future<List<TrainerEntity>>      getAllTrainers();
   Future<List<PaymentEntity>>      getAllPayments();
   Future<List<SubscriptionEntity>> getAllSubscriptions();
+  Future<void>                     addTrainer(TrainerEntity trainer);
+  Future<void>                     deleteTrainer(int id);
+  Future<void>                     deleteUser(int id);
 }

@@ -25,9 +25,7 @@ void main() async {
   await Get.putAsync(() => StorageService().init());
   await Get.putAsync(() => ThemeService().init());
   await Get.putAsync(() => ConnectivityService().init());
-
   final authRepo = AuthRepositoryImpl(remote: AuthRemoteDataSourceImpl());
-
   Get.put(AuthController(
     loginUseCase: Login(authRepo),
     logoutUseCase: Logout(authRepo),
@@ -36,25 +34,13 @@ void main() async {
     resetPasswordUseCase: ResetPassword(authRepo),
   ));
 
-  final isLoggedIn = await authRepo.isLoggedIn();
-  final role = await authRepo.getCurrentRole();
-
-  String startRoute = AppRoutes.login;
-  if (isLoggedIn) {
-    switch (role) {
-      case UserRole.admin:
-        startRoute = AppRoutes.adminDashboard;
-      case UserRole.trainer:
-        startRoute = AppRoutes.trainerDashboard;
-      case UserRole.user:
-        startRoute = AppRoutes.userDashboard;
-    }
-  }
-
   final savedLocale = StorageService.to.getString(key: AppConstants.localeKey);
   final locale = _resolveLocale(savedLocale);
 
-  runApp(MyApp(initialLocale: locale, initialRoute: startRoute));
+  runApp(MyApp(
+    initialLocale: locale,
+    initialRoute: AppRoutes.splash,
+  ));
 }
 
 Locale _resolveLocale(String? code) {
@@ -101,7 +87,7 @@ class MyApp extends StatelessWidget {
           initialRoute: initialRoute,
           getPages: appPages,
           defaultTransition: Transition.cupertino,
-          transitionDuration: const Duration(milliseconds: 300),
+          transitionDuration: const Duration(milliseconds: 200),
         ));
   }
 }

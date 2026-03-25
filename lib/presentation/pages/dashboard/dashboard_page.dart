@@ -34,7 +34,7 @@ class DashboardPage extends StatelessWidget {
         actions: [
           IconButton(
             icon: Icon(Icons.settings_rounded,
-                color: isDark ? Colors.white54 : Colors.black38),
+                color: isDark ? Colors.white70 : Colors.black54),
             onPressed: () => Get.toNamed('/settings'),
           ),
         ],

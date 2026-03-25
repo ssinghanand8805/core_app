@@ -10,6 +10,9 @@ abstract class AdminRemoteDataSource {
   Future<List<TrainerModel>> getAllTrainers();
   Future<List<PaymentModel>> getAllPayments();
   Future<List<SubscriptionModel>> getAllSubscriptions();
+  Future<void> addTrainer(Map<String, dynamic> data);
+  Future<void> deleteTrainer(int id);
+  Future<void> deleteUser(int id);
 }
 
 class AdminRemoteDataSourceImpl implements AdminRemoteDataSource {
@@ -56,5 +59,26 @@ class AdminRemoteDataSourceImpl implements AdminRemoteDataSource {
     } catch (_) {
       return SubscriptionModel.mockList();
     }
+  }
+
+  @override
+  Future<void> addTrainer(Map<String, dynamic> data) async {
+    try {
+      await _dio.post(ApiEndpoints.trainers, data: data);
+    } catch (_) {}
+  }
+
+  @override
+  Future<void> deleteTrainer(int id) async {
+    try {
+      await _dio.delete('${ApiEndpoints.trainers}/$id');
+    } catch (_) {}
+  }
+
+  @override
+  Future<void> deleteUser(int id) async {
+    try {
+      await _dio.delete('${ApiEndpoints.adminUsers}/$id');
+    } catch (_) {}
   }
 }
